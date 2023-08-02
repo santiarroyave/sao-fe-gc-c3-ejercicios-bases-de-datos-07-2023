@@ -70,3 +70,47 @@ CREATE TABLE Ingrediente (
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
+
+
+
+-- Agregando datos a Cocinero
+INSERT INTO Cocinero (dni, nombre, apellidos, telefono_fijo, num_ss, telefono_movil, años_servicio)
+	VALUES ('1234567890', 'Maxi', 'Perez Alonso', '977 000 001', 123456, '666 000 001', 10);
+
+-- Agregando datos a Pinches_cocina
+INSERT INTO Pinches_cocina (dni, nombre, apellidos, telefono_fijo, num_ss, telefono_movil, fecha_nacimiento, dni_encargado)
+	VALUES ('9876543210', 'Pedro', 'Lopez Ramirez', '977 000 002', 654321, '666 000 002', '2000-01-15', '1234567890');
+INSERT INTO Pinches_cocina (dni, nombre, apellidos, telefono_fijo, num_ss, telefono_movil, fecha_nacimiento, dni_encargado)
+	VALUES ('9996543210', 'Laura', 'Perez', '977 000 003', 554433, '666 000 003', '2000-01-15', '1234567890');
+
+-- Agregando datos a Plato
+INSERT INTO Plato (id, plato, tipo)
+	VALUES (1, 'Paella', 'Principal');
+
+-- Agregando datos a Cocineros_Plato
+INSERT INTO Cocineros_Plato (dni_cocinero, id_plato)
+	VALUES ('1234567890', 1);
+
+-- Agregando datos a Almacen
+INSERT INTO Almacen (numero, nombre, direccion, descripcion)
+	VALUES (1, 'Almacen 3', 'Calle Asturias 123', 'Almacen de ingredientes frescos');
+
+-- Agregando datos a Estanteria
+INSERT INTO Estanteria (n_almacen, letras, tamaño)
+	VALUES (1, 'A', 5);
+
+-- Agregando datos a Ingrediente
+INSERT INTO Ingrediente (id, nombre, n_almacen, letra_estanteria, tamaño_estanteria)
+	VALUES (1, 'Arroz', 1, 'A', 5);
+
+
+
+-- Actualizando datos
+UPDATE Almacen
+SET descripcion="Almacen principal"
+WHERE numero=1;
+
+-- Eliminando datos
+DELETE FROM Pinches_cocina WHERE dni="9996543210";
+
+

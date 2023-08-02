@@ -61,3 +61,42 @@ CREATE TABLE Contiene (
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
+
+
+
+-- Agregando datos a Persona
+INSERT INTO Persona (id, nombre, apellidos, correo, edad, sexo)
+	VALUES (1, 'Marta', 'Gomez', 'marta@ejercicio9.com', 26, 'Femenino');
+INSERT INTO Persona (id, nombre, apellidos, correo, edad, sexo)
+	VALUES (2, 'Alex', 'Paris', 'alex@ejercicio9.com', 30, 'Masculino');
+
+-- Agregando datos a Receta
+INSERT INTO Receta (id, nombre, tiempo, preparacion, fecha, id_persona_FK)
+	VALUES (1001, 'Tarta de Manzana', 60, '1. Precalentar el horno a 180°C.\n2. Pelar y cortar las manzanas...\n', '2023-08-01', 1);
+
+-- Agregando datos a Cocinero
+INSERT INTO Cocinero (id_persona_FK, id_receta_FK, fecha)
+VALUES (1, 1001, '2023-08-01');
+
+-- Agregando datos a Grupo_alimentario
+INSERT INTO Grupo_alimentario (id, nombre)
+VALUES (1, 'Frutas');
+
+-- Agregando datos a Ingrediente
+INSERT INTO Ingrediente (id, nombre, id_grupo_alimentario_FK)
+VALUES (1, 'Manzana', 1);
+
+-- Agregando datos a Contiene
+INSERT INTO Contiene (id_receta_FK, id_ingrediente_FK, cantidad)
+VALUES (1001, 1, 4);
+
+
+-- Actualizando datos
+UPDATE Persona
+SET edad=33
+WHERE id=2;
+
+-- Borrando datos
+DELETE FROM Persona where id=2;
+
+

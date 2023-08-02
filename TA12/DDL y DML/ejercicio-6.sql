@@ -202,6 +202,13 @@ INSERT INTO Prestamo_musica (id_prestamo, codigo_musica)
 VALUES (3, 20003);
 
 
+UPDATE Socio
+SET nombre = "Jose"
+WHERE dni="11111111A";
+
+DELETE FROM Libro WHERE codigo=30003;
+
+
 
 
 

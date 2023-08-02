@@ -78,3 +78,58 @@ CREATE TABLE Tarjetas_embarque (
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
+
+
+
+-- Agregando datos a Cliente
+INSERT INTO Cliente(dni, nombre, apellidos, direccion, telefono)
+	VALUES("39900001A", "Paco", "Mendez", "Calle victoria 4", "666 000 001");
+INSERT INTO Cliente (dni, nombre, apellidos, direccion, telefono)
+	VALUES ('1234567890', 'Juan', 'Perez Gonzalez', 'Calle Principal 123', '555-1234');
+INSERT INTO Cliente (dni, nombre, apellidos, direccion, telefono)
+	VALUES ('39900002B', 'Pedro', 'Palomares', 'Calle triniti', '666 000 003');
+
+-- Agregando datos a Aeropuerto
+INSERT INTO Aeropuerto(id, nombre, localidad)
+	VALUES(1, "Aeropuerto de madrid", "Madrid");
+INSERT INTO Aeropuerto (id, nombre, localidad)
+	VALUES (2, 'Aeropuerto de portugal', 'Oporto');
+
+-- Agregando datos a Avion
+INSERT INTO Avion (id, num_plazas)
+	VALUES (101, 150);
+
+-- Agregando datos a Vuelo
+INSERT INTO Vuelo (id, fecha, hora_salida, horaLlegada, aeropuerto_salida_id, aeropuerto_entrada_id, id_avion)
+	VALUES (1001, '2023-08-01', '12:00:00', '14:30:00', 1, 2, 101);
+
+-- Agregando datos a Reserva
+INSERT INTO Reserva (dni_cliente, id_vuelo, numero_reserva, plazas)
+	VALUES ('1234567890', 1001, 1, 2);
+
+-- Agregando datos a Asiento
+INSERT INTO Asiento (fila, columna, planta, id_avion)
+	VALUES (1, 2, 1, 101);
+
+-- Agregando datos a Tarjetas_embarque
+INSERT INTO Tarjetas_embarque (id, dni_cliente, fila, columna, planta, id_avion)
+	VALUES (1, '1234567890', 1, 2, 1, 101);
+
+
+
+-- Actualizando datos
+UPDATE Cliente
+SET telefono="666 000 002"
+WHERE dni="1234567890";
+
+-- Borrando datos
+DELETE FROM Cliente WHERE dni="39900002B";
+
+
+
+
+
+
+
+
+

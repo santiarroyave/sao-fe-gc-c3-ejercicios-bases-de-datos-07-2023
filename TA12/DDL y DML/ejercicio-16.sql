@@ -41,7 +41,9 @@ create table usuario_tweet(
 INSERT INTO usuarios (nombre, email, contrasena) VALUES
 ('Usuario1', 'usuario1@example.com', 'contrasena123'),
 ('Usuario2', 'usuario2@example.com', 'clave456'),
-('Usuario3', 'usuario3@example.com', 'pass789');
+('Usuario3', 'usuario3@example.com', 'pass789'),
+('Usuario4', 'usuario4@example.com', '123456')
+;
 
 INSERT INTO tweets (multimedia, tweet) VALUES
 ('imagen1.jpg', 'Este es el primer tweet.'),
@@ -71,5 +73,15 @@ INSERT INTO usuario_tweet (usuario, tweet) VALUES
 INSERT INTO usuario_tweet (usuario, tweet) VALUES
 (3, 3),
 (3, 4);
+
+
+
+-- Actualizacion de registros
+UPDATE usuarios
+SET nombre = 'Usuario5'
+WHERE id = 4;
+
+-- Eliminando registro
+DELETE FROM usuarios WHERE id=4;
 
 
